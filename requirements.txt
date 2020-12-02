@@ -1,0 +1,6 @@
+numpy == 1.19.4
+pandas == 1.1.4
+
+# explicit file package locations for above
+#https://files.pythonhosted.org/packages/0b/bc/a5eecf00251948d1c31434c6164368767e5c860984a99ca571ae505c37ea/numpy-1.19.4-cp38-cp38-macosx_10_9_x86_64.whl
+#https://files.pythonhosted.org/packages/18/f0/905058bd437423591491092d7e42244babd0c19861e6b1abdadb199a1321/pandas-1.1.4-cp38-cp38-macosx_10_9_x86_64.whl
