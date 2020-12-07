@@ -1,4 +1,5 @@
 import re
+from anytree import Node, RenderTree, find
 
 class bag_rules:
     def __init__(self, your_bag_color, input_file='test.txt', verbose=False):
@@ -68,3 +69,25 @@ n_outer_bags = b.count_bags()
 print()
 print(f"There are {n_outer_bags} bags that can contain yours")
 
+#part 2
+def count_children(n, bags):
+    if len(n.children) > 0:
+        for child in n.children:
+            bags += 1
+            ref_node =  find(root, lambda node: node.name == child.name, maxlevel=2)
+            bags = count_children(ref_node, bags)
+    return bags
+
+root = Node("root")
+for key, value in b.bags.items():
+    n = Node(key, parent=root)
+    for k,v in b.bags[key].items():
+        for i in range(v):
+            nn = Node(k, parent=n)
+
+for pre, fill, node in RenderTree(root):
+    print("%s%s" % (pre, node.name))
+
+n = find(root, lambda node: node.name == 'shiny gold', maxlevel=2)
+bags = count_children(n, 0)
+print(f"Part 2: You need to hold: {bags} bags.")
