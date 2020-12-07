@@ -78,6 +78,7 @@ def count_children(n, bags):
             bags = count_children(ref_node, bags)
     return bags
 
+#build tree
 root = Node("root")
 for key, value in b.bags.items():
     n = Node(key, parent=root)
@@ -85,9 +86,11 @@ for key, value in b.bags.items():
         for i in range(v):
             nn = Node(k, parent=n)
 
+#view tree
 for pre, fill, node in RenderTree(root):
     print("%s%s" % (pre, node.name))
 
+# count children
 n = find(root, lambda node: node.name == 'shiny gold', maxlevel=2)
 bags = count_children(n, 0)
 print(f"Part 2: You need to hold: {bags} bags.")
