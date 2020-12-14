@@ -45,6 +45,5 @@ for i in adapters[1:]:
     diff.append(i-current)
     current = i
 print(diff)
-# for idx, jolt in enumerate(adapters):
 
 
